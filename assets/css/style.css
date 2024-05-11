@@ -310,3 +310,7 @@ header a{
         font-size: 30px;
     }
 }
+.des p{
+    font-size: 80px;
+    font-weight: 900;
+}

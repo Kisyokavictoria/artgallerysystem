@@ -21,10 +21,10 @@ class Constants
   );
 }
 
-class Art_Type{
-  const painting = "painting";
-  const sculpture ="sculpture";
-  const photography = "photography";
-  const printmaking = "printmaking";
-  const drawing = "drawing";
-}
+// class Art_Type{
+//   const painting = "painting";
+//   const sculpture ="sculpture";
+//   const photography = "photography";
+//   const printmaking = "printmaking";
+//   const drawing = "drawing";
+// }

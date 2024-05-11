@@ -52,7 +52,6 @@ class Migration extends Mysql
             art_url VARCHAR(255),
             artist VARCHAR(255),
             description VARCHAR(255),
-            category VARCHAR(255),
             price FLOAT,
             date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (gallery_id) REFERENCES gallery(id) ON DELETE CASCADE ON UPDATE CASCADE
