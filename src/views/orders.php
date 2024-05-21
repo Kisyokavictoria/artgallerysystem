@@ -14,7 +14,7 @@ $services = new Services($user_id);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../assets/css/dashboard.css" />
-  <link rel="icon" type="image/x-icon" href="../../assets/images/moon.png" />
+  <!-- <link rel="icon" type="image/x-icon" href="../../assets/images/moon.png" /> -->
   <title>Order Summary</title>
   <style>
     body {
@@ -69,10 +69,10 @@ $services = new Services($user_id);
 <body>
   <header>
     <div class="logo">
-      <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a>
+      <!-- <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a> -->
     </div>
     <div class="title">
-      <h1>Fusion</h1>
+    <h1>GO DOWN ARTS</h1>
     </div>
     <nav class="nav-links">
       <a href="/art/src/logout.php">Logout</a>
@@ -119,7 +119,7 @@ $services = new Services($user_id);
         echo "<td>" . $order_art['id'] . "</td>";
         echo "<td>" . $order_art['art_id'] . "</td>";
         echo "<td>" . $order_art['exhibit_id'] . "</td>";
-        echo "<td>$" . $order_art['price'] . "</td>";
+        echo "<td>Ksh" . $order_art['price'] . "</td>";
         echo "<td>" . ($order_art['paid'] == 1 ? 'Yes' : 'No') . "</td>";
         echo "<td>" . $order_art['date_created'] . "</td>";
         echo "</tr>";
@@ -153,8 +153,8 @@ $services = new Services($user_id);
         echo "<td>" . $order_art['id'] . "</td>";
         echo "<td>" . $order_art['art_id'] . "</td>";
         echo "<td>" . $order_art['exhibit_id'] . "</td>";
-        echo "<td>$" . $order_art['price'] . "</td>";
-        echo "<td>" . ($order_art['paid'] == 1 ? 'Yes' : 'No') . "</td>";
+        echo "<td>Ksh" . $order_art['price'] . "</td>";
+        echo "<td>" . ($order_art['paid'] == 0 ? 'No' : 'Yes') . "</td>";
         echo "<td>" . $order_art['date_created'] . "</td>";
         echo "</tr>";
       }

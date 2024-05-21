@@ -39,6 +39,7 @@ class Mysql extends Db_config
     $this->username = null;
     $this->password = null;
   }
+// function for selecting everyhting from the table
 
   function selectall($tablename)
   {
@@ -46,7 +47,7 @@ class Mysql extends Db_config
     $this->dataset = mysqli_query($this->connectionstring, $this->sqlquery);
     return $this->dataset;
   }
-
+// function for selecting the table name and it's value
   function selectwhere($tablename, $rowname, $operator, $value)
   {
     // Validate and sanitize input values
@@ -78,7 +79,7 @@ class Mysql extends Db_config
   }
 
 
-
+// Inseting values acoording to the table name and values 
   function insertInto($tableName, $values)
   {
     if (empty($values) || !is_array($values)) {
@@ -91,13 +92,14 @@ class Mysql extends Db_config
     $params = array();
     $types = '';
 
+// ask gpt it helped
     foreach ($values as $column => $data) {
       $columns[] = $column;
-      $placeholders[] = '?';
+      $placeholders[] = '?'; 
       $params[] = &$data['val']; // Note the use of reference here
       $types .= isset($data['type']) ? $data['type'] : 's'; // Use the specified type if available, otherwise default to 's' for string
     }
-
+// join array element with sting (,)
     $columnsString = implode(',', $columns);
     $placeholdersString = implode(',', $placeholders);
     $sql = "INSERT INTO $tableName ($columnsString) VALUES ($placeholdersString)";
@@ -173,7 +175,7 @@ class Mysql extends Db_config
   {
     $tablename = mysqli_real_escape_string($this->connectionstring, $tablename);
     $condition = mysqli_real_escape_string($this->connectionstring, $condition);
-
+// 
     $this->sqlquery = "DELETE FROM $tablename WHERE $condition";
     $result = mysqli_query($this->connectionstring, $this->sqlquery);
 

@@ -74,10 +74,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <header>
     <div class="logo">
-      <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a>
+      <!-- <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a> -->
     </div>
     <div class="title">
-      <h1>Fusion</h1>
+    <h1>GO DOWN ARTS</h1>
     </div>
     <nav class="nav-links">
       <a href="/art/src/logout.php">Logout</a>

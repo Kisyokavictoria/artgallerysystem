@@ -15,8 +15,8 @@ class Constants
     "secret"           => "O0AcxXjOUFm8Z1hwbxd1fy1jX9IK6ilzOj3SQ1Z3ywUV1KZZX2ObgDpJMLoqwYbz",
     "TransactionType"  => "CustomerPayBillOnline",
     "passkey"          => "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919",
-    "CallBackURL"      => "https://8867-41-60-236-129.ngrok-free.app/art/lib/callback.php", //When using localhost, Use Ngrok to forward the response to your Localhost
-    "AccountReference" => "ARTZZ LTD",
+    "CallBackURL"      => "https://95ca-41-90-181-86.ngrok-free.app/art/lib/callback.php", //When using localhost, Use Ngrok to forward the response to your Localhost
+    "AccountReference" => "GO DOWN ART",
     "TransactionDesc"  => "Payment",
   );
 }

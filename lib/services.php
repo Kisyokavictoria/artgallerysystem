@@ -1,3 +1,4 @@
+
 <?php
 include 'sql.php';
 
@@ -12,9 +13,12 @@ class Services extends Mysql
     $this->user_id = $user_id;
   }
   // $quantity argument can be null
+  // ? it can be null
   function add_art_to_cart($art_id, ?int $quantity)
   {
-    $quantity = $quantity ?? 1;
+    if($quantity === null){
+      $quantity=1;
+    }
     $query = "SELECT * FROM cart WHERE user_id = $this->user_id AND art_id = $art_id";
     $cart_item = $this->selectfreerun($query);
     $cart_item = mysqli_fetch_assoc($cart_item);
@@ -246,6 +250,7 @@ class Services extends Mysql
     }
 
     // Constructing the prepared statement
+    // GPT code
     $set = '';
     $params = array();
     $types = '';
@@ -337,6 +342,7 @@ class Services extends Mysql
 
     return $result; // Return true if update was successful, false otherwise
   }
+  // Make request to mpesa 
   protected function curlRequest($url, $headers = [], $data = null)
   {
     $ch = curl_init($url);

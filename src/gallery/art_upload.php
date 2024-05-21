@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $artist_name = $_POST['artist'];
   $description = $_POST['description'];
   $price = $_POST['price'];
-  $category = $_POST['category'];
+  // $category = $_POST['category'];
 
 
   // File upload handling
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       'name' => array('val' => $name, 'type' => 's'),
       'artist' => array('val' => $artist_name, 'type' => 's'),
       'art_url' => array('val' => $image_url, 'type' => 's'),
-      'category' => array('val' => $category, 'type' => 's'),
+      // 'category' => array('val' => $category, 'type' => 's'),
 
       'description' => array('val' => $description, 'type' => 's'),
       'price' => array('val' => $price, 'type' => 'i'),
@@ -67,10 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <header>
     <div class="logo">
-      <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a>
+      <!-- <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a> -->
     </div>
     <div class="title">
-      <h1>Fusion</h1>
+      <h1>GO DOWN ARTS</h1>
     </div>
     <nav class="nav-links">
       <a href="/art/src/logout.php">Logout</a>
@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <span class="error" aria-live="polite" id="email-error"></span>
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <select name="category" class="custom-select">
           <option value="drawings">drawings</option>
           <option value="printmaking">printmaking</option>
@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <option value="sculpture">sculpture</option>
           <option value="paintings">paintings</option>
         </select>
-      </div>
+      </div> -->
 
 
       <div class="form-group">

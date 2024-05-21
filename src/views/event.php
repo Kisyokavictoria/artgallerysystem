@@ -32,7 +32,7 @@ if (isset($_POST['add_to_cart'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product View</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/images/moon.png" />
+  <!-- <link rel="icon" type="image/x-icon" href="../../assets/images/moon.png" /> -->
   <link rel="stylesheet" href="../../assets/css/dashboard.css" />
 
   <style>
@@ -96,11 +96,11 @@ if (isset($_POST['add_to_cart'])) {
 <body>
   <header>
     <div class="logo">
-      <a href="#"><img src="../../assets/images/moon.png" alt="Logo"></a>
+      <!-- <a href="#"><img src="../../assets/images/moon.png" alt="Logo"></a> -->
     </div>
     <div class="title">
       <a href="/art/src/dashboard.php" style="text-decoration: none;color: black;">
-        <h1>Fusion</h1>
+      <h1>GO DOWN ARTS</h1>
       </a>
     </div>
     <nav class="nav-links">
@@ -132,7 +132,7 @@ if (isset($_POST['add_to_cart'])) {
         <div class="view-additional-details">
           <p><i><b>Event description:</b></i> <?php echo $event['description']; ?></p>
           <p><i><b>Hosted by:</b></i> <?php echo $gallery['name']; ?></p>
-          <p><i><b>Price:</b></i> $<?php echo $event['price']; ?></p>
+          <p><i><b>Price:</b></i> Ksh<?php echo $event['price']; ?></p>
         </div>
         <form method="POST">
           <input type="hidden" name="exhibit_id" value="<?php echo $event['id']; ?>">

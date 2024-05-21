@@ -30,7 +30,7 @@ $cart_details = $service->selectwhere('cart', 'user_id', '=', $user_id);
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <title>Cart</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/images/moon.png" />
+  <!-- <link rel="icon" type="image/x-icon" href="../../assets/images/moon.png" /> -->
   <link rel="stylesheet" href="../../assets/css/dashboard.css" />
 
 </head>
@@ -177,11 +177,11 @@ $cart_details = $service->selectwhere('cart', 'user_id', '=', $user_id);
 </style>
 <header>
   <div class="logo">
-    <a href="#"><img src="../../assets/images/moon.png" alt="Logo"></a>
+    <!-- <a href="#"><img src="../../assets/images/moon.png" alt="Logo"></a> -->
   </div>
   <div class="title">
     <a href="/art/src/dashboard.php" style="text-decoration: none;color: black;">
-      <h1>Fusion</h1>
+    <h1>GO DOWN ARTS</h1>
     </a>
   </div>
   <nav class="nav-links">
@@ -241,7 +241,7 @@ $cart_details = $service->selectwhere('cart', 'user_id', '=', $user_id);
       <div class="cartitemdetails">
         <h3><?php echo $artwork['name']; ?></h3>
         <p>Artist: <?php echo $artwork['artist']; ?></p>
-        <p>Price: $<?php echo $artwork['price']; ?></p>
+        <p>Price: Ksh<?php echo $artwork['price']; ?></p>
         <p>Quantity: <?php echo $cart['quantity']; ?></p>
         <div class="action-buttons">
           <button class="reducebtn" onclick="reduceQuantity(<?php echo $cart['id']; ?>)"><i class="fas fa-minus"></i></button>
@@ -261,7 +261,7 @@ $cart_details = $service->selectwhere('cart', 'user_id', '=', $user_id);
       <div class="cartitemdetails">
         <h3><?php echo $event['name']; ?></h3>
         <p>Hosted by: <?php echo $gallery['name']; ?></p>
-        <p>Price: $<?php echo $event['price']; ?></p>
+        <p>Price: Ksh<?php echo $event['price']; ?></p>
         <p>Quantity: <?php echo $cart['quantity']; ?></p>
         <div class="action-buttons">
           <button class="reducebtn" onclick="reduceQuantity(<?php echo $cart['id']; ?>)"><i class="fas fa-minus"></i></button>
@@ -280,7 +280,7 @@ $cart_details = $service->selectwhere('cart', 'user_id', '=', $user_id);
         <button id="checkBTN" type="submit">Submit</button>
       </form>
       <b>
-        <p>Total Amount you will pay: $<span id="totalAmount"></span></p>
+        <p>Total Amount you will pay: Ksh<span id="totalAmount"></span></p>
       </b>
     </div>
   </div>

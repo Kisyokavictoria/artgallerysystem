@@ -6,24 +6,17 @@ include '../../lib/services.php';
 $user_id = $_SESSION['user']['user_id'];
 $services = new Services($user_id);
 
-// Check if art ID is provided
-if (isset($_GET['id'])) {
-  // Sanitize the input to prevent SQL injection or other attacks
-  $art_id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-  // Fetch art details from the database
-  $art_details = $services->selectwhere("art", "id", '=', $art_id);
-  $art = mysqli_fetch_assoc($art_details);
-} else {
-  echo "Art ID not provided";
-}
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
   // Get the form data
-  $art_id = $_POST['art_id']; // Assuming you have a hidden input field with the art_id
   $name = $_POST['name'];
   $artist_name = $_POST['artist'];
   $description = $_POST['description'];
   $price = $_POST['price'];
+//   $category = $_POST['category'];
+
 
   // File upload handling
   $target_dir = "/xammp/htdocs/art"; // Specify the directory where you want to store the uploaded files
@@ -37,20 +30,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $gallery = mysqli_fetch_assoc($result);
   $gallery_id = $gallery["id"];
   $response =  $services->upload($target_file, $file_size);
-
   if ($response == 0) {
     $values = array(
+      'gallery_id' => array('val' => $gallery_id, 'type' => 'i'),
       'name' => array('val' => $name, 'type' => 's'),
       'artist' => array('val' => $artist_name, 'type' => 's'),
       'art_url' => array('val' => $image_url, 'type' => 's'),
+    //   'category' => array('val' => $category, 'type' => 's'),
+
       'description' => array('val' => $description, 'type' => 's'),
       'price' => array('val' => $price, 'type' => 'i'),
     );
-
-    // Perform the update operation
-    $services->updateArt($art_id, $values);
-
-    $success = "Art details updated successfully";
+    $services->insertInto('art', $values);
+    $success = "art upload was successful";
   } else {
     $error = $response;
   }
@@ -75,13 +67,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <header>
     <div class="logo">
-      <!-- <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a> -->
+      <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a>
     </div>
     <div class="title">
-      <h1>GO DOWN ARTS</h1>
+      <h1>Fusion</h1>
     </div>
     <nav class="nav-links">
       <a href="/art/src/logout.php">Logout</a>
+      <a href="events.php">Event Reports</a>
+      <a href="arts.php">Art Reports</a>
       <a href="event_upload.php">New Event</a>
       <a href="art_upload.php">Upload Art</a>
       <a href="/art/src/gallery/dashboard.php">Home</a>
@@ -110,28 +104,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <form method="post" autocomplete="off" enctype="multipart/form-data">
-      <input type="hidden" name="art_id" value="<?php echo $art['id']; ?>">
-      <h1>Edit Art Piece</h1>
+      <h1>Create a new art Piece</h1>
 
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" class="form-control" name="name" placeholder="Enter event name" value="<?php echo isset($art['name']) ? $art['name'] : ''; ?>" />
+        <input type="text" id="name" class="form-control" name="name" placeholder="Enter event name" />
         <span class="error" aria-live="polite" id="email-error"></span>
       </div>
 
       <div class="form-group">
         <label for="artist">Artist Name:</label>
-        <input type="text" id="artist" class="form-control" name="artist" placeholder="Enter artist name" value="<?php echo isset($art['artist']) ? $art['artist'] : ''; ?>" />
+        <input type="text" id="artist" class="form-control" name="artist" placeholder="Enter artist name" />
         <span class="error" aria-live="polite" id="email-error"></span>
       </div>
+
+      <!-- <div class="form-group">
+        <select name="category" class="custom-select">
+          <option value="drawings">drawings</option>
+          <option value="printmaking">printmaking</option>
+          <option value="photography">photography</option>
+          <option value="sculpture">sculpture</option>
+          <option value="paintings">paintings</option>
+        </select>
+      </div> -->
+
+
       <div class="form-group">
         <label for="description">Art Description:</label>
-        <textarea id="description" name="description" placeholder="Enter event description ..." class="form-control"><?php echo isset($art['description']) ? $art['description'] : ''; ?></textarea>
+        <textarea id="description" name="description" placeholder="Enter event description ..." class="form-control"></textarea>
         <span class="error" aria-live="polite" id="email-error"></span>
       </div>
       <div class="form-group">
         <label for="price">Art Price:</label>
-        <input type="number" id="price" class="form-control" name="price" placeholder="Enter event ticket price" min="1" value="<?php echo isset($art['price']) ? $art['price'] : ''; ?>" />
+        <input type="number" id="price" class="form-control" name="price" placeholder="Enter event ticket price" min="1" />
         <span class="error" aria-live="polite" id="email-error"></span>
       </div>
       <center>
@@ -146,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <span class="error" aria-live="polite" id="email-error"></span>
         </div>
       </center>
-      <button class="submit-btn" name="submit-art">Update Art</button>
+      <button class="submit-btn" name="submit-art">Upload Art</button>
     </form>
   </div>
   <script>

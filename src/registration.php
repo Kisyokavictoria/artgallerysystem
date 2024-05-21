@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="../assets/images/moon.png" />
+  <!-- <link rel="icon" type="image/x-icon" href="../assets/images/moon.png" /> -->
   <link rel="stylesheet" href="../assets/css/register.css">
 </head>
 
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="form-group">
         <label for="password">Password:</label>
         <input type="password" id="password" class="form-control" name="password" placeholder="Enter your password">
-        <span class="error" aria-live="polite"></span>
+        <span class="error" aria-live="polite" id="password-error"></span>
       </div>
 
       <div class="form-group">

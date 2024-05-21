@@ -19,7 +19,7 @@ if (isset($_POST['add_to_cart_ticket'])) {
 
 <head>
   <link rel="stylesheet" href="../assets/css/dashboard.css" />
-  <link rel="icon" type="image/x-icon" href="../assets/images/moon.png" />
+  <!-- <link rel="icon" type="image/x-icon" href="../assets/images/moon.png" /> -->
 
 </head>
 
@@ -74,7 +74,7 @@ if (isset($_POST['add_to_cart_ticket'])) {
               <h2><?php echo $artwork['name']; ?></h2>
               <div class="additional-details">
                 <p><i><b>Artist name:</b></i> <?php echo $artwork['artist']; ?></p>
-                <p><i><b>Price:</b></i> $<?php echo $artwork['price']; ?></p>
+                <p><i><b>Price:</b></i> Ksh<?php echo $artwork['price']; ?></p>
               </div>
               <form method="POST">
                 <input type="hidden" name="art_id" value="<?php echo $artwork['id']; ?>">
@@ -111,7 +111,7 @@ if (isset($_POST['add_to_cart_ticket'])) {
               <h2><?php echo $event['name']; ?></h2>
               <div class="additional-details">
                 <p><i><b>Description:</b></i> <?php echo $event['description']; ?></p>
-                <p> <i><b>Price:</b></i> $<?php echo $event['price']; ?></p>
+                <p> <i><b>Price:</b></i> Ksh<?php echo $event['price']; ?></p>
               </div>
               <form method="POST">
                 <input type="hidden" name="exhibit_id" value="<?php echo $event['id']; ?>">

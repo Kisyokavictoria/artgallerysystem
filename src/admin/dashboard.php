@@ -113,6 +113,8 @@ $gallery = mysqli_fetch_assoc($result);
     <a href="users.php">Users Reports</a>
     <a href="arts.php">Art Reports</a>
     <a href="orders.php">Orders Reports</a>
+    <a href="event_upload.php">New Event</a>
+    <a href="art_upload.php">Upload Art</a>
     <a href="/art/src/admin/dashboard.php">Home</a>
   </nav>
 </header>

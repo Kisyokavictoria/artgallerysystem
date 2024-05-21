@@ -102,10 +102,10 @@ $gallery = mysqli_fetch_assoc($result);
 </style>
 <header>
   <div class="logo">
-    <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a>
+    <!-- <a href="/art/index.html"><img src="../../assets/images/moon.png" alt="Logo"></a> -->
   </div>
   <div class="title">
-    <h1>Fusion</h1>
+  <h1>GO DOWN ARTS</h1>
   </div>
   <nav class="nav-links">
     <a href="/art/src/logout.php">Logout</a>
@@ -196,7 +196,7 @@ $gallery = mysqli_fetch_assoc($result);
             <h2><?php echo $artwork['name']; ?></h2>
             <div class="additional-details">
               <p><i><b>Artist name:</b></i> <?php echo $artwork['artist']; ?></p>
-              <p><i><b>Price:</b></i> $<?php echo $artwork['price']; ?></p>
+              <p><i><b>Price:</b></i> Ksh<?php echo $artwork['price']; ?></p>
             </div>
           </div>
         </a>
@@ -233,7 +233,7 @@ $gallery = mysqli_fetch_assoc($result);
             <h2><?php echo $event['name']; ?></h2>
             <div class="additional-details">
               <p><i><b>Description:</b></i> <?php echo $event['description']; ?></p>
-              <p> <i><b>Price:</b></i> $<?php echo $event['price']; ?></p>
+              <p> <i><b>Price:</b></i> Ksh<?php echo $event['price']; ?></p>
             </div>
           </div>
         </a>

@@ -27,11 +27,10 @@ if (isset($_POST['add_to_cart_ticket'])) {
   <header>
     <div class="logo">
 
-      <a href="#"><img src="../assets/images/moon.png" alt="Logo"></a>
+      <!-- <a href="#"><img src="../assets/images/moon.png" alt="Logo"></a> -->
     </div>
     <div class="title">
-      <h1>Fusion</h1>
-    </div>
+    <h1 style="color: orange;">GO DOWN ART</h1>    </div>
     <nav class="nav-links">
       <a href="/art/src/logout.php">Logout</a>
       <a href="/art/src/art.php">Art</a>
@@ -75,7 +74,7 @@ if (isset($_POST['add_to_cart_ticket'])) {
               <h2><?php echo $artwork['name']; ?></h2>
               <div class="additional-details">
                 <p><i><b>Artist name:</b></i> <?php echo $artwork['artist']; ?></p>
-                <p><i><b>Price:</b></i> $<?php echo $artwork['price']; ?></p>
+                <p><i><b>Price:</b></i> Ksh<?php echo $artwork['price']; ?></p>
               </div>
               <form method="POST">
                 <input type="hidden" name="art_id" value="<?php echo $artwork['id']; ?>">
